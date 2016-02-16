@@ -10,6 +10,7 @@
 angular.module('mytodoApp')
   .controller('MainCtrl', function($scope,testFactory) {
     $scope.todos = [];
+    $scope.name = 'John';
 
     $scope.addTodo = function(){
     	$scope.todos.push($scope.todo);
