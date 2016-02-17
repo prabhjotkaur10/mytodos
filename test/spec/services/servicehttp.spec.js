@@ -60,4 +60,18 @@ describe('omdb http service', function(){
 
     expect(response).toEqual('Error!!');
    })
+
+   it('should delete a movie', function(){
+    var expectedUrl = 'http://www.example.com/?v=1&';
+    $httpBackend.expectPOST(expectedUrl)
+      .respond(200)
+
+    omdbApi1.deleteMovie('tt0076759')
+    .then(function(data){
+      response = data.status;
+    })
+
+    $httpBackend.flush();
+    expect(response).toBe(200);
+   })
 })

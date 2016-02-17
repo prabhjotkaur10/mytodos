@@ -23,5 +23,19 @@ angular.module('mytodoApp')
 			return httpPromise(baseUrl + 'i=' + id)
 	}
 
+	service.deleteMovie = function(movie_id){
+    var params = {
+        movie_id: movie_id
+    };
+    var fake_url = 'http://www.example.com/?v=1&';
+
+    return $http.post(fake_url, params)
+    .success(function(data){
+      result = data;
+    })
+    .error(function(error){
+    });
+  };
+
 	return service;
 })
