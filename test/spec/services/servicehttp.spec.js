@@ -3,6 +3,7 @@ describe('omdb http service', function(){
   var movieDataById = {"Title":"Star Wars: Episode IV - A New Hope","Year":"1977","Rated":"PG","Released":"25 May 1977","Runtime":"121 min","Genre":"Action, Adventure, Fantasy","Director":"George Lucas","Writer":"George Lucas","Actors":"Mark Hamill, Harrison Ford, Carrie Fisher, Peter Cushing","Plot":"Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the galaxy from the Empire's world-destroying battle-station, while also attempting to rescue Princess Leia from the evil Darth Vader.","Language":"English","Country":"USA","Awards":"Won 6 Oscars. Another 38 wins & 27 nominations.","Poster":"http://ia.media-imdb.com/images/M/MV5BMTU4NTczODkwM15BMl5BanBnXkFtZTcwMzEyMTIyMw@@._V1_SX300.jpg","Metascore":"92","imdbRating":"8.7","imdbVotes":"852,420","imdbID":"tt0076759","Type":"movie","Response":"True"};
   var omdbApi1 = {};
   var $httpBackend;
+  var response;
 
   //initialize or load module
   beforeEach(module('mytodoApp'));
@@ -13,7 +14,6 @@ describe('omdb http service', function(){
   }))
 
   it('should return search movie data', function(){
-    var response;
     var expectedUrl = 'http://www.omdbapi.com/?v=1&s=star%20wars';
     $httpBackend.when('GET', expectedUrl)
       .respond(200,movieData);
@@ -29,7 +29,6 @@ describe('omdb http service', function(){
    });
 
    it('should return movie data according to id', function(){
-    var response;
     var expectedUrl = 'http://www.omdbapi.com/?v=1&i=tt0076759';
     $httpBackend.expect('GET', expectedUrl)
       .respond(200,movieDataById);
@@ -45,7 +44,6 @@ describe('omdb http service', function(){
    });
 
    it('should handle error', function(){
-    var response;
     var expectedUrl = 'http://www.omdbapi.com/?v=1&i=tt0076759';
     $httpBackend.when('GET', expectedUrl)
       .respond(500);
