@@ -5,9 +5,7 @@ describe('reverse suite', function(){
 
 	beforeEach(inject(function ($filter, $rootScope) {
     scope = $rootScope.$new();
-    reverseFilter = $filter('reverse', {
-      $scope: scope
-    });
+    reverseFilter = $filter('reverse');
   }));
 
 	it('should reverse a string', function(){
