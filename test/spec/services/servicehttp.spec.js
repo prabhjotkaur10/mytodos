@@ -62,7 +62,7 @@ describe('omdb http service', function(){
    })
 
    it('should delete a movie', function(){
-    dump('delete')
+    // dump('delete')
     var param = {"movie_id":"tt0076759"};
     var expectedUrl = /./;
     $httpBackend.expectPOST(expectedUrl, param)

@@ -1,47 +1,48 @@
-describe('service: popular movie', function(){
-	var PopularMovies;
-	var $httpBackend;
+// describe('service: popular movie', function(){
+// 	var PopularMovies;
+// 	var $httpBackend;
 
-	beforeEach(module('mytodoApp'));
+// 	beforeEach(module('mytodoApp'));
 
-	beforeEach(inject(function(_PopularMovies_, _$httpBackend_){
-		PopularMovies = _PopularMovies_;
-		$httpBackend = _$httpBackend_;
-	}))
+// 	beforeEach(inject(function(_PopularMovies_, _$httpBackend_){
+// 		PopularMovies = _PopularMovies_;
+// 		$httpBackend = _$httpBackend_;
+// 	}))
 
-	afterEach(function(){
-		$httpBackend.verifyNoOutstandingExpectation();
-	})
+// 	afterEach(function(){
+// 		$httpBackend.verifyNoOutstandingExpectation();
+// 	})
 
-	it('should create a popular movie', function(){
-		//'{"movieId":"tt0076759","description":"Great Movie"}'
-		var expectedData = function(data){
-			return angular.fromJson(data).movieId === 'tt0076759';
-		}
-		$httpBackend.expectPOST(/./, expectedData).respond(201);
+// 	it('should create a popular movie', function(){
+// 		//'{"movieId":"tt0076759","description":"Great Movie"}'
+// 		var expectedData = function(data){
+// 			return angular.fromJson(data).movieId === 'tt0076759';
+// 		}
+// 		$httpBackend.expectPOST(/./, expectedData).respond(201);
 
-		var popularMovie = new PopularMovies({
-			movieId: 'tt0076759',
-			description: 'Great Movie!'
-		});
-		popularMovie.$save();
+// 		var popularMovie = new PopularMovies({
+// 			movieId: 'tt0076759',
+// 			description: 'Great Movie!'
+// 		});
+// 		// $httpBackend.flush();
+// 		popularMovie.$save();
 
-		expect($httpBackend.flush).not.toThrow();
-	})
+// 		expect($httpBackend.flush).not.toThrow();
+// 	})
 
-	it('should return popular movie by id', function(){
-		$httpBackend.expectGET('popular/tt0076759').respond(200);
-		PopularMovies.get({movieId: 'tt0076759'});
-		expect($httpBackend.flush).not.toThrow();
-	})
+// 	it('should return popular movie by id', function(){
+// 		$httpBackend.expectGET('popular/tt0076759').respond(200);
+// 		PopularMovies.get({movieId: 'tt0076759'});
+// 		expect($httpBackend.flush).not.toThrow();
+// 	})
 
-	it('should update popular movie', function(){
-		$httpBackend.expectPUT('popular').respond(201);
-		var popularMovie = new PopularMovies({
-			movieId: 'tt0076759',
-			description: 'Great Movie!'
-		});
+// 	it('should update popular movie', function(){
+// 		$httpBackend.expectPUT('popular').respond(201);
+// 		var popularMovie = new PopularMovies({
+// 			movieId: 'tt0076759',
+// 			description: 'Great Movie!'
+// 		});
 
-		popularMovie.$update();
-	})
-})
+// 		popularMovie.$update();
+// 	})
+// })
