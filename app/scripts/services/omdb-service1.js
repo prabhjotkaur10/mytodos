@@ -27,7 +27,7 @@ angular.module('mytodoApp')
     var params = {
         movie_id: movie_id
     };
-    var fake_url = 'http://www.example.com/?v=1&';
+    var fake_url = 'http://www.example.com';
 
     return $http.post(fake_url, params)
     .success(function(data){

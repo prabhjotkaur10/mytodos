@@ -62,8 +62,10 @@ describe('omdb http service', function(){
    })
 
    it('should delete a movie', function(){
-    var expectedUrl = 'http://www.example.com/?v=1&';
-    $httpBackend.expectPOST(expectedUrl)
+    dump('delete')
+    var param = {"movie_id":"tt0076759"};
+    var expectedUrl = /./;
+    $httpBackend.expectPOST(expectedUrl, param)
       .respond(200)
 
     omdbApi1.deleteMovie('tt0076759')
