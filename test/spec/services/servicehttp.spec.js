@@ -15,7 +15,7 @@ describe('omdb http service', function(){
 
   it('should return search movie data', function(){
     var expectedUrl = 'http://www.omdbapi.com/?v=1&s=star%20wars';
-    $httpBackend.when('GET', expectedUrl)
+    $httpBackend.expect('GET', expectedUrl)
       .respond(200,movieData);
 
     omdbApi1.search('star wars')
