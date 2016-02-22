@@ -8,12 +8,12 @@
  * Controller of the mytodoApp
  */
 angular.module('mytodoApp')
-  .controller('MainCtrl', function($scope,testFactory) {
+  .controller('MainCtrl', function($scope) {
     $scope.todos = [];
 
     $scope.addTodo = function(){
+        console.log(1)
     	$scope.todos.push($scope.todo);
-    	$scope.todo = '';
     };
 
     $scope.removeTodo = function(index){
